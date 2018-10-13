@@ -9,13 +9,16 @@ const User = mongoose.model( 'User', new mongoose.Schema( {
         maxlength: 50
     },
     email: {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
     mobile: {
         type: String,
         required: true,
         minlength: 10,
-        maxlength: 10
+        maxlength: 10,
+        unique: true
     }
 } ) );
 
