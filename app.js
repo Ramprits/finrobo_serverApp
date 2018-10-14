@@ -5,12 +5,12 @@ const path = require( 'path' );
 const cookieParser = require( 'cookie-parser' );
 const logger = require( 'morgan' );
 const app = express();
+app.use( cors() );
 
 require( './startup/prod' )( app );
 require( "./startup/db" )();
 require( './startup/routes' )( app );
 
-app.use( cors() );
 
 // view engine setup
 app.set( 'views', path.join( __dirname, 'views' ) );
