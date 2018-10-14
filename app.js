@@ -4,9 +4,11 @@ const express = require( 'express' );
 const path = require( 'path' );
 const cookieParser = require( 'cookie-parser' );
 const logger = require( 'morgan' );
-const app = express(); 
+const app = express();
+
+require( './startup/prod' )( app );
 require( "./startup/db" )();
-require('./startup/routes')(app);
+require( './startup/routes' )( app );
 
 app.use( cors() );
 
